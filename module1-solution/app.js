@@ -2,31 +2,33 @@
 	'use strict';
 
 	angular.module('LunchCheck', [])
-	.controller('LunchCheckController', function ($scope) {
-		$scope.dishes = "";
-		$scope.lunchResult = "";
-		$scope.textStatus = "";
-		$scope.inputStatus = "";
+	.controller('LunchCheckController', ['$scope', LunchCheckController]);
 
-		$scope.countDishes = function () {
+	function LunchCheckController(s) {
+		s.dishes = "";
+		s.lunchResult = "";
+		s.textStatus = "";
+		s.inputStatus = "";
+
+		s.countDishes = function () {
 			// Check with regexp strings containing only spaces, tabs or line breaks
-			var dishesCount = $scope.dishes.split(",")
+			var dishesCount = s.dishes.split(",")
 			.filter(function (dish) {return dish.replace(/\s/g, '').length}).length;
 
 			if (dishesCount == 0) {
-				$scope.lunchResult = "Please enter data first";
-				$scope.textStatus = "";
-				$scope.inputStatus = "";
+				s.lunchResult = "Please enter data first";
+				s.textStatus = "";
+				s.inputStatus = "";
 			} else if (dishesCount > 3) {
-				$scope.lunchResult = "Too much!";
-				$scope.textStatus = "text-danger";
-				$scope.inputStatus = "has-error";
+				s.lunchResult = "Too much!";
+				s.textStatus = "text-danger";
+				s.inputStatus = "has-error";
 			} else {
-				$scope.lunchResult = "Enjoy!";
-				$scope.textStatus = "text-success";
-				$scope.inputStatus = "has-success";
+				s.lunchResult = "Enjoy!";
+				s.textStatus = "text-success";
+				s.inputStatus = "has-success";
 			};
 		};
-	});
+	}
 
 })();

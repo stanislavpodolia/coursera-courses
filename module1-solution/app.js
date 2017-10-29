@@ -18,12 +18,12 @@
 
 			if (dishesCount == 0) {
 				$scope.lunchResult = "Please enter data first";
-				$scope.textStatus = "";
-				$scope.inputStatus = "";
-			} else if (dishesCount > 3) {
-				$scope.lunchResult = "Too much!";
 				$scope.textStatus = "text-danger";
 				$scope.inputStatus = "has-error";
+			} else if (dishesCount > 3) {
+				$scope.lunchResult = "Too much!";
+				$scope.textStatus = "text-success";
+				$scope.inputStatus = "has-success";
 			} else {
 				$scope.lunchResult = "Enjoy!";
 				$scope.textStatus = "text-success";

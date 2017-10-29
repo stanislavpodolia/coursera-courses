@@ -5,29 +5,29 @@
 	.controller('LunchCheckController', LunchCheckController);
 
 	LunchCheckController.$inject = ['$scope'];
-	function LunchCheckController(s) {
-		s.dishes = "";
-		s.lunchResult = "";
-		s.textStatus = "";
-		s.inputStatus = "";
+	function LunchCheckController($scope) {
+		$scope.dishes = "";
+		$scope.lunchResult = "";
+		$scope.textStatus = "";
+		$scope.inputStatus = "";
 
-		s.countDishes = function () {
+		$scope.countDishes = function () {
 			// Check with regexp strings containing only spaces, tabs or line breaks
-			var dishesCount = s.dishes.split(",")
+			var dishesCount = $scope.dishes.split(",")
 			.filter(function (dish) {return dish.replace(/\s/g, '').length}).length;
 
 			if (dishesCount == 0) {
-				s.lunchResult = "Please enter data first";
-				s.textStatus = "";
-				s.inputStatus = "";
+				$scope.lunchResult = "Please enter data first";
+				$scope.textStatus = "";
+				$scope.inputStatus = "";
 			} else if (dishesCount > 3) {
-				s.lunchResult = "Too much!";
-				s.textStatus = "text-danger";
-				s.inputStatus = "has-error";
+				$scope.lunchResult = "Too much!";
+				$scope.textStatus = "text-danger";
+				$scope.inputStatus = "has-error";
 			} else {
-				s.lunchResult = "Enjoy!";
-				s.textStatus = "text-success";
-				s.inputStatus = "has-success";
+				$scope.lunchResult = "Enjoy!";
+				$scope.textStatus = "text-success";
+				$scope.inputStatus = "has-success";
 			};
 		};
 	}

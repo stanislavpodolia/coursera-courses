@@ -5,14 +5,27 @@
 	.controller('LunchCheckController', function ($scope) {
 		$scope.dishes = "";
 		$scope.lunchResult = "";
+		$scope.textStatus = "";
+		$scope.inputStatus = "";
 
 		$scope.countDishes = function () {
 			// Check with regexp strings containing only spaces, tabs or line breaks
 			var dishesCount = $scope.dishes.split(",")
 			.filter(function (dish) {return dish.replace(/\s/g, '').length}).length;
 
-			$scope.lunchResult = dishesCount == 0 ? "Please enter data first" :
-				dishesCount > 3 ? "Too much!" : "Enjoy!";
+			if (dishesCount == 0) {
+				$scope.lunchResult = "Please enter data first";
+				$scope.textStatus = "";
+				$scope.inputStatus = "";
+			} else if (dishesCount > 3) {
+				$scope.lunchResult = "Too much!";
+				$scope.textStatus = "text-danger";
+				$scope.inputStatus = "has-error";
+			} else {
+				$scope.lunchResult = "Enjoy!";
+				$scope.textStatus = "text-success";
+				$scope.inputStatus = "has-success";
+			};
 		};
 	});
 

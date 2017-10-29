@@ -14,16 +14,21 @@
   <div class="container" ng-controller="LunchCheckController">
     <h1>Lunch Checker</h1>
 
-    <div class="form-group">
+    <div class="form-group {{inputStatus}}">
       <input id="lunch-menu" type="text"
       placeholder="list comma separated dishes you usually have for lunch"
-      class="form-control", ng-model="dishes">
+      class="form-control", ng-model="dishes", aria-describedby="lunch-menu-help-block">
+      <p id="lunch-menu-help-block" class="form-text text-muted">
+        Inputs with empty dishes (', ,' etc.) aren't considered in the result output
+      </p>
     </div>
     <div class="form-group">
       <button class="btn btn-default" ng-click="countDishes();">Check If Too Much</button>
     </div>
     <div class="form-group message">
-      {{lunchResult}}
+      <p id="lunch-menu-result" class="form-text {{textStatus}}">
+        {{lunchResult}}
+      </p>
     </div>
   </div>
 </body>

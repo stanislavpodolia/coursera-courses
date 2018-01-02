@@ -1,0 +1,42 @@
+/* * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 175%;
+  text-align: center;
+}
+
+section {
+  background: #dddddd;
+  padding: 12px;
+  padding: 0px;
+  border: 1px solid black;
+}
+
+section > p.title {
+  font-size: 125%;
+  float: right;
+  margin: 0px;
+  padding: 4px 48px 4px 48px;
+  border: 1px solid black;
+}
+
+section > p.content {
+  clear: right;
+  margin: 0px;
+  padding: 12px;
+} */
+
+#main_content {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.bg-primary > p > a {
+  color: orange;
+}

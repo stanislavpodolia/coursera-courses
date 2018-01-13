@@ -1,7 +1,7 @@
 <div class="col-xs-12">
   <ul class="list-group">
     <li ng-repeat="item in foundItems" class="list-group-item container">
-      <button class="btn btn-secondary pull-right" ng-click="onRemove($index);">Don't want this one!</button>
+      <button class="btn btn-secondary pull-right" ng-click="onRemove({index: $index});">Don't want this one!</button>
       <div class="pull-left">
         ({{item.short_name}}) {{item.name}} </br>
         {{item.description}}

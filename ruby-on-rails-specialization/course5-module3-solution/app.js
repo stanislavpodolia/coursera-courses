@@ -45,7 +45,7 @@
 		return {
 			scope: {
 				'foundItems': '<',
-				'onRemove': '<'
+				'onRemove': '&'
 			},
 			restrict: 'E',
 			templateUrl: 'foundItems.html'
